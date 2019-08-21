@@ -75,30 +75,28 @@ nodejs + nestjs + mongodb + mongoose + es6/7 + typescript
 
 
 ```
+## 部署
 
+```bash
+$ docker-compose up -d
+```
 
 ## Development Setup
 
 ```bash
-# 安装
-$ npm ci
-
-# 开发
-$ npm run start:dev
-
-# 测试
-$ npm run lint
-$ npm run test
-$ npm run test:e2e
-$ npm run test:cov
-$ npm run test:watch
-
 # 构建
 $ npm run build
 
-# 生产环境运行
-$ npm run start:prod
+# 启动
+$ npm run start
 
-# 更新 GEO IP 库数据
-$ npm run updategeodb
+# 代码格式化
+$ npm run format
+
+# tslint
+$ npm run lint
+
+# 测试
+$ npm run test
+
 ```
