@@ -1,0 +1,32 @@
+version: "3"
+services:
+  mongo:
+    networks:
+    - test-network
+    container_name: mongo
+    image: mongo:4.0.2
+    restart: always
+    ports:
+    - "127.0.0.1:27017:27017"  # 本地端口(可自定义):容器内默认端口(mongo设定为27017)
+#    environment:  # admin账号和密码
+#    MONGO_INITDB_ROOT_USERNAME: admin
+#    MONGO_INITDB_ROOT_PASSWORD: DoNotPeek
+  demo:
+    networks:
+    - test-network
+    container_name: demo
+    image: node:10.15
+    volumes:
+    - ./:/data0/service
+    ports:
+    - "127.0.0.1:3000:3000"
+    links:
+    - mongo
+    depends_on:
+    - mongo
+    command: bash -c "cd /data0/service && npm install && npm run build && npm run start"
+    restart: always
+networks:
+  test-network:
+
+

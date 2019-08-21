@@ -1,0 +1,107 @@
+{
+  "appenders": {
+    "console": {
+      "type": "console",
+      "category": "console"
+    },
+    "maxInfo": {
+      "type": "logLevelFilter",
+      "appender": "info",
+      "level": "debug",
+      "maxLevel": "info"
+    },
+    "mysql": {
+      "type": "dateFile",
+      "filename": "log/mysql/",
+      "pattern": "yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "maxLogSize": 1048576,
+      "backups": 20,
+      "encoding": "utf8",
+      "mode": 420,
+      "flags": "a"
+    },
+    "campaign": {
+      "type": "dateFile",
+      "filename": "log/campaign/",
+      "pattern": "yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "maxLogSize": 1048576,
+      "backups": 20,
+      "encoding": "utf8",
+      "mode": 420,
+      "flags": "a"
+    },
+    "user": {
+      "type": "dateFile",
+      "filename": "log/user/",
+      "pattern": "yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "maxLogSize": 1048576,
+      "backups": 20,
+      "encoding": "utf8",
+      "mode": 420,
+      "flags": "a"
+    },
+    "elector": {
+      "type": "dateFile",
+      "filename": "log/elector/",
+      "pattern": "yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "maxLogSize": 1048576,
+      "backups": 20,
+      "encoding": "utf8",
+      "mode": 420,
+      "flags": "a"
+    },
+    "favicon.ico": {
+      "type": "dateFile",
+      "filename": "log/favicon.ico/",
+      "pattern": "yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "maxLogSize": 1048576,
+      "backups": 20,
+      "encoding": "utf8",
+      "mode": 420,
+      "flags": "a"
+    }
+  },
+  "categories": {
+    "mysql": {
+      "appenders": [
+        "mysql"
+      ],
+      "level": "all"
+    },
+    "default": {
+      "appenders": [
+        "maxInfo"
+      ],
+      "level": "all"
+    },
+    "campaign": {
+      "appenders": [
+        "campaign"
+      ],
+      "level": "all"
+    },
+    "user": {
+      "appenders": [
+        "user"
+      ],
+      "level": "all"
+    },
+    "elector": {
+      "appenders": [
+        "elector"
+      ],
+      "level": "all"
+    },
+    "favicon.ico": {
+      "appenders": [
+        "favicon.ico"
+      ],
+      "level": "all"
+    }
+  }
+}

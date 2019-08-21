@@ -1,0 +1,9 @@
+node_modules/  
+test1/
+dist/
+.git
+.gitignore
+.idea
+.DS_Store
+*.swp
+*.log

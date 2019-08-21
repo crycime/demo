@@ -1,0 +1,205 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-08-21T18:19:00.830Z",
+    "end": "2019-08-21T18:19:05.663Z",
+    "duration": 4833,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "0d1e1d4b-6e62-4e27-9b9c-412da97a0b53",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "afeb3a1b-2ba9-4dce-9688-40e296fe4437",
+        "title": "用户模块",
+        "fullFile": "D:\\gitProject\\demo\\test\\接口测试\\user.test.ts",
+        "file": "\\test\\接口测试\\user.test.ts",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "用户模块 \"before all\" hook",
+            "timedOut": false,
+            "duration": 1073,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "const module = await testing_1.Test.createTestingModule({\n    imports: [\n        user_module_1.UserModule,\n        custom_module_1.customModule,\n        database_module_1.DatabaseModule\n    ]\n}).compile();\nuserDto = module.get(user_dto_1.UserDto);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "38e0df5a-b935-4ae5-a6e4-7ff9043724ce",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after each\" hook",
+            "fullTitle": "用户模块 \"after each\" hook",
+            "timedOut": false,
+            "duration": 1,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "await userDto.deleteOne({ user: config_json_1.default.user });\nreturn;",
+            "err": {},
+            "isRoot": false,
+            "uuid": "aa52266e-dcdf-4755-9b6c-90dc1615461e",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "b9d6f178-fd87-4368-8b2e-40dc3c8f4d37",
+            "title": "用户注册",
+            "fullFile": "D:\\gitProject\\demo\\test\\接口测试\\user.test.ts",
+            "file": "\\test\\接口测试\\user.test.ts",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "邮箱格式错误",
+                "fullTitle": "用户模块 用户注册 邮箱格式错误",
+                "timedOut": false,
+                "duration": 160,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": "[\n  {\n    \"title\": \"请求头部\",\n    \"value\": {\n      \"Accept\": \"application/json\",\n      \"Method\": \"POST\",\n      \"URL\": \"http://localhost:3000/user\"\n    }\n  },\n  {\n    \"title\": \"请求参数\",\n    \"value\": {\n      \"user\": \"test\",\n      \"password\": \"111111\"\n    }\n  },\n  {\n    \"title\": \"返回结果\",\n    \"value\": {\n      \"code\": 4000,\n      \"error\": \"\\\"user\\\" must be a valid email\",\n      \"timestamp\": \"2019-08-21T18:19:02.100Z\",\n      \"path\": \"/user\"\n    }\n  }\n]",
+                "code": "const {resBody, headers, body} = await supertest_1.post('/user', null, {\n    user: 'test',\n    password: config_json_1.default.password\n});\naddContext(this, headers);\naddContext(this, body);\naddContext(this, {\n    title: '返回结果',\n    value: resBody\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "87a10256-ed64-43f7-be05-d108938f8947",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "正常发送",
+                "fullTitle": "用户模块 用户注册 正常发送",
+                "timedOut": false,
+                "duration": 3470,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": "[\n  {\n    \"title\": \"请求头部\",\n    \"value\": {\n      \"Accept\": \"application/json\",\n      \"Method\": \"POST\",\n      \"URL\": \"http://localhost:3000/user\"\n    }\n  },\n  {\n    \"title\": \"请求参数\",\n    \"value\": {\n      \"user\": \"snile657@outlook.com\",\n      \"password\": \"111111\"\n    }\n  },\n  {\n    \"title\": \"返回结果\",\n    \"value\": {\n      \"code\": 5000,\n      \"error\": \"Message failed: 554 5.2.0 STOREDRV.Submission.Exception:OutboundSpamException; Failed to process message due to a permanent exception with message WASCL UserAction verdict is not None. Actual verdict is HipNotify, ShowTierUpgrade. OutboundSpamException: WASCL UserAction verdict is not None. Actual verdict is HipNotify, ShowTierUpgrade. [Hostname=HK2PR0401MB1971.apcprd04.prod.outlook.com]\",\n      \"timestamp\": \"2019-08-21T18:19:05.583Z\",\n      \"path\": \"/user\"\n    }\n  }\n]",
+                "code": "const {resBody, headers, body} = await supertest_1.post('/user', null, {\n    user: config_json_1.default.user,\n    password: config_json_1.default.password\n});\naddContext(this, headers);\naddContext(this, body);\naddContext(this, {\n    title: '返回结果',\n    value: resBody\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "25af71c2-2b17-4903-bda6-5d1893fe7e94",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "87a10256-ed64-43f7-be05-d108938f8947",
+              "25af71c2-2b17-4903-bda6-5d1893fe7e94"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 3630,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 15000
+          },
+          {
+            "uuid": "f963d498-5145-43bf-ab1b-302f8f675068",
+            "title": "邮箱验证",
+            "fullFile": "D:\\gitProject\\demo\\test\\接口测试\\user.test.ts",
+            "file": "\\test\\接口测试\\user.test.ts",
+            "beforeHooks": [
+              {
+                "title": "\"before all\" hook",
+                "fullTitle": "用户模块 邮箱验证 \"before all\" hook",
+                "timedOut": false,
+                "duration": 29,
+                "pass": false,
+                "fail": false,
+                "pending": false,
+                "code": "user = await userDto.create({\n    user: config_json_1.default.user,\n    password: config_json_1.default.password\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "14d412fc-6105-4760-9f36-7eca2d00c900",
+                "isHook": true,
+                "skipped": false
+              }
+            ],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "正常发送",
+                "fullTitle": "用户模块 邮箱验证 正常发送",
+                "timedOut": false,
+                "duration": 30,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": "[\n  {\n    \"title\": \"请求头部\",\n    \"value\": {\n      \"Accept\": \"application/json\",\n      \"Method\": \"GET\",\n      \"URL\": \"http://localhost:3000/user/5d5d8b1994f94c2dd829262d/verification-email\"\n    }\n  },\n  {\n    \"title\": \"请求参数\",\n    \"value\": {\n      \"user\": \"test\",\n      \"password\": \"111111\"\n    }\n  },\n  {\n    \"title\": \"返回结果\",\n    \"value\": {\n      \"code\": 0,\n      \"data\": {\n        \"status\": \"0\",\n        \"_id\": \"5d5d8b1994f94c2dd829262d\",\n        \"user\": \"snile657@outlook.com\",\n        \"password\": \"111111\",\n        \"vote\": [],\n        \"created\": \"2019-08-21T18:19:05.619Z\",\n        \"updated\": \"2019-08-21T18:19:05.619Z\",\n        \"__v\": 0\n      }\n    }\n  }\n]",
+                "code": "const {resBody, headers, body} = await supertest_1.get(`/user/${ user._id }/verification-email`, null, {\n    user: 'test',\n    password: config_json_1.default.password\n});\naddContext(this, headers);\naddContext(this, body);\naddContext(this, {\n    title: '返回结果',\n    value: resBody\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "f1ae0f50-48c9-428c-acd1-e064de21c28f",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "f1ae0f50-48c9-428c-acd1-e064de21c28f"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 30,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 15000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 15000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 15000
+  },
+  "copyrightYear": 2019
+}
