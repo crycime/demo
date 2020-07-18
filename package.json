@@ -36,7 +36,7 @@
         "joi": "14.3.1",
         "jsonfile": "5.0.0",
         "jsonwebtoken": "8.5.1",
-        "lodash": "4.17.11",
+        "lodash": "4.17.19",
         "log4js": "2.10.0",
         "mongoose": "5.2.0",
         "morgan": "1.9.1",
